@@ -17,9 +17,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    def mvnHome = tool 'Maven'
-                    def mvnCmd = "${mvnHome}/bin/mvn"
-                    sh "${mvnCmd} -f discovery-server/pom.xml clean install"
+                    sh "mvn -f discovery-server/pom.xml clean install"
                 }
             }
         }
