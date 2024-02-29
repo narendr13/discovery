@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        // Define the Maven tool
+        maven 'maven'
+    }
     
     stages {
         stage('integration') {
