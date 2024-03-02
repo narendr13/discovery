@@ -6,7 +6,7 @@ pipeline{
     }
     stages{
         stage ('checkout'){
-            Steps{
+            steps{
                 script{
                     checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/narendr13/discovery.git']])
                 }
