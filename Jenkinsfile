@@ -18,7 +18,7 @@ tools {
         stage ('king2'){
             steps{
                 script{
-                    def mvnHome = tool 'Maven'
+                    def mvnHome = tool 'maven'
                     def mvnCmd = "${mvnHome}/bin/mvn"
                     sh "${mvnCmd} -f discovery-server/pom.xml clean install"
                 }
