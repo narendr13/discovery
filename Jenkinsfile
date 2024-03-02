@@ -1,6 +1,8 @@
 pipeline{
-    agent node{
+    agent {
+        node{
         label 'king'
+    }
     }
     stages{
         stage ('checkout'){
