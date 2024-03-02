@@ -20,7 +20,7 @@ tools {
                 script{
                     def mvnHome = tool 'maven'
                     def mvnCmd = "${mvnHome}/bin/mvn"
-                    sh "${mvnCmd} -f discovery-server/pom.xml clean install"
+                    sh "${mvnCmd} -f discovery-server/pom.xml clean"
                 }
             }
         }
