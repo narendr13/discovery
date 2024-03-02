@@ -4,6 +4,9 @@ pipeline{
         label 'king'
     }
     }
+tools {
+  maven 'maven'
+}
     stages{
         stage ('checkout'){
             steps{
