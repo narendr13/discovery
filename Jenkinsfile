@@ -28,7 +28,7 @@ tools {
     post {
         success {
             script{
-            sh "cp /home/ubuntu/workspace/sample/discovery-server/target/*SNAPSHOT.jar /opt/tomcat/webapps"
+            sh "sudo cp /home/ubuntu/workspace/sample/discovery-server/target/*SNAPSHOT.jar /opt/tomcat/webapps"
             }
         }
     }
