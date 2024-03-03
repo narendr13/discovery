@@ -27,7 +27,7 @@ tools {
     }
     post {
         success {
-            cp /home/ubuntu/workspace/sample/discovery-server/target/discovery-server-*-SNAPSHOT.jar /opt/tomcat/webapps
+            cp /home/ubuntu/workspace/sample/discovery-server/target/discovery-server* /opt/tomcat/webapps
         }
     }
 }
