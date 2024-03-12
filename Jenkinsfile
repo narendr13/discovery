@@ -24,7 +24,7 @@ tools {
     post {
         success {
             script{
-            sh "echo admin | sudo -S systemctl enable jenkins"
+            sh "echo jenkins | sudo -S systemctl enable jenkins"
             sh "sudo cp /var/lib/jenkins/workspace/sample/discovery-server/target/*SNAPSHOT.jar /opt/"
             }
         }
