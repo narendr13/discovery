@@ -1,8 +1,5 @@
 pipeline{
-    agent {
-        node{
-        label 'king'
-    }
+    agent any
     }
 tools {
   maven 'maven'
