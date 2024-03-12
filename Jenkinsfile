@@ -21,13 +21,17 @@ tools {
             }
         }
         stage ('image build'){
-            steps{
-                script{
-                    sh "curl -O https://github.com/narendr13/discovery/tree/master/Dockerfile"
-                    // Build the Docker imag
-                    
-                    sh "docker build -f Dockerfile -t king ."
+            steps {
+                // Fetch the Dockerfile from GitHub
+                script {
+                    sh "curl -o Dockerfile https://raw.githubusercontent.com/narendr13/discovery/master/Dockerfile"
                 }
+                // Copy the WAR file to the current workspace
+                dir('discovery-server/target') {
+                    sh 'cp *SNAPSHOT.jar ${WORKSPACE}/'
+                }
+                // Build the Docker image
+                sh "docker build -f Dockerfile --build-arg WAR_FILE=*SNAPSHOT.jar -t king ."
             }
         }
     }
