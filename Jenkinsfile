@@ -23,7 +23,9 @@ tools {
         stage ('image build'){
             steps{
                 script{
-                    sh "docker build -t king ."
+                    sh "curl -O https://raw.githubusercontent.com/narendr13/discovery/master/Dockerfile"
+                    // Build the Docker image
+                    sh "docker build -f Dockerfile -t king ."
                 }
             }
         }
