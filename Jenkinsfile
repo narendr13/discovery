@@ -27,13 +27,6 @@ tools {
                     sh "docker build -t king ."
             }
         }
-    }
-    post {
-        success {
-            script{
-            sh "echo jenkins | sudo -S systemctl enable jenkins && sudo cp /var/lib/jenkins/workspace/sample/discovery-server/target/*SNAPSHOT.jar /opt/"
-            }
         }
-    }
     }
 }
