@@ -1,7 +1,7 @@
 FROM tomcat:latest
 
 # Copy the WAR file into the webapps directory of Tomcat
-COPY your_application.war /usr/local/tomcat/webapps/
+COPY /var/lib/jenkins/workspace/sample/discovery-server/target/*SNAPSHOT.jar /usr/local/tomcat/webapps/
 
 # Optionally, you can expose the port your application runs on
 EXPOSE 8080
