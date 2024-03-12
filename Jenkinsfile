@@ -24,14 +24,7 @@ tools {
             steps {
                 // Fetch the Dockerfile from GitHub
                 script {
-                    sh "curl -o Dockerfile https://raw.githubusercontent.com/narendr13/discovery/master/Dockerfile"
-                }
-                // Copy the WAR file to the current workspace
-                dir('discovery-server/target') {
-                    sh 'cp *SNAPSHOT.jar ${WORKSPACE}/'
-                }
-                // Build the Docker image
-                sh "docker build -f Dockerfile --build-arg WAR_FILE=*SNAPSHOT.jar -t king ."
+                    sh "docker build -t king ."
             }
         }
     }
