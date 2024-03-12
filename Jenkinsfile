@@ -22,7 +22,7 @@ tools {
         }
         stage ('image build'){
             steps {
-                // Fetch the Dockerfile from GitHub
+                // Fetch the Dockerfile from GitHu
                 script {
                     sh "docker build -t king ."
             }
