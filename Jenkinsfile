@@ -23,7 +23,7 @@ tools {
         stage ('image build'){
             steps{
                 script{
-                    sh "cd /var/lib/jenkins/workspace/sample/discovery-server/target/ && docker build -t king ."
+                    sh "docker build -t king ."
                 }
             }
         }
