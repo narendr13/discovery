@@ -1,4 +1,4 @@
-FROM tomcat:latest
+FROM tomcat
 
 # Copy the WAR file into the webapps directory of Tomcat
 COPY /var/lib/jenkins/workspace/sample/discovery-server/target/*SNAPSHOT.jar /usr/local/tomcat/webapps/
