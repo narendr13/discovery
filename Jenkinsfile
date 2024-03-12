@@ -20,6 +20,13 @@ tools {
                 }
             }
         }
+        stage ('image build'){
+            steps{
+                script{
+                    sh "docker build -t king ."
+                }
+            }
+        }
     }
     post {
         success {
