@@ -22,7 +22,7 @@ tools {
         }
         stage ('image build'){
             environment{
-                dockerImage = "narendra98/myrep"  
+                dockerImage = "narendra98/king"  
                 REGISTRY_CREDENTIALS = credentials('Docker-cred')
             }
             steps {
