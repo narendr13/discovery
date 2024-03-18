@@ -22,16 +22,16 @@ tools {
         }
         stage ('image build'){
             environment{
-                docker_image = "narendra98/myrep:${BUILD_NUMBER}"  
+                dockerImage = "narendra98/myrep:${BUILD_NUMBER}"  
                 REGISTRY_CREDENTIALS = credentials('Docker-cred')
             }
             steps {
                 // Fetch the Dockerfile from GitHu
                 script {
-                    sh "docker build -t ${docker_image} ."
+                    sh "docker build -t ${dockerImage} ."
                     withDockerRegistry(credentialsId: 'Docker-cred', url: 'https://index.docker.io/v1') {
-                    def dockerImage = docker.image("${docker_image}")
-                    dockerImage.push()
+                        def dockerImage = docker.image("${dockerImage}")
+                        dockerImage.push()
             }
         }
         }
