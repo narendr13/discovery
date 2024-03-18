@@ -29,9 +29,11 @@ tools {
                 // Fetch the Dockerfile from GitHu
                 script {
                     sh "docker build -t ${dockerImage} ."
-                     docker.withRegistry('https://index.docker.io/v1/', "Docker-cred") {
+                     //docker.withRegistry('https://index.docker.io/v1/', "Docker-cred") {}
+                    withDockerRegistry(credentialsId: 'Docker-cred', url: 'http://index.docker.io') {
                         docker.image(dockerImage).push()
                     }
+                        
                     //withDockerRegistry(credentialsId: 'Docker-cred', url: 'http://index.docker.io') {}
                     //"${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
             }
