@@ -43,10 +43,10 @@ tools {
                         sh "scp -o StrictHostKeyChecking=no service.yaml deployment.yaml ubuntu@34.207.72.157:/home/ubuntu/"
                         script{
                             try{
-                                sh "ssh ubuntu@34.207.72.157 kubectl apply -f ."
+                                sh "ssh ubuntu@34.207.72.157 kubectl apply -f . --validate=false"
                             }
                             catch(error){
-                                sh "ssh ubuntu@34.207.72.157 kubectl create -f ."
+                                sh "ssh ubuntu@34.207.72.157 kubectl create -f . --validate=false"
                             }
                         }
                     }
