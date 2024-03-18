@@ -28,5 +28,19 @@ tools {
             }
         }
         }
+        stage ('image push'){
+            environment{
+                docker_image = "narendra98/myrep:${BUILD_NUMBER}"  
+            }
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'Docker-cred', url: 'https://hub.docker.com/') {
+                        def dockerImage = docker.image("${docker_image}")
+                        dockerImage.push()   
+                    }
+                }
+            }
+        }
     }
 }
+
