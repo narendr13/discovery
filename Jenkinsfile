@@ -41,14 +41,15 @@ tools {
             steps{
                     sshagent(['k8s']) {
                         sh "scp -o StrictHostKeyChecking=no service.yaml deployment.yaml ubuntu@34.207.72.157:/home/ubuntu/"
-                        script{
-                            try{
-                                sh "ssh ubuntu@34.207.72.157 kubectl apply -f . --validate=false"
-                            }
-                            catch(error){
-                                sh "ssh ubuntu@34.207.72.157 kubectl create -f . --validate=false"
-                            }
-                        }
+                        sh "ssh ubuntu@34.207.72.157 kubectl apply -f . --validate=false"
+                        //script{
+                            //try{
+                                //sh "ssh ubuntu@34.207.72.157 kubectl apply -f . --validate=false"
+                            //}
+                            //catch(error){
+                                //sh "ssh ubuntu@34.207.72.157 kubectl create -f . --validate=false"
+                            //}
+                        //}
                     }
             }
         }
