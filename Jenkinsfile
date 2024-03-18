@@ -34,7 +34,7 @@ tools {
             }
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'Docker-cred', url: 'https://hub.docker.com/') {
+                    withDockerRegistry(credentialsId: 'Docker-cred', url: 'https://index.docker.io/v1') {
                         def dockerImage = docker.image("${docker_image}")
                         dockerImage.push()   
                     }
