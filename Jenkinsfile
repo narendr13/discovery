@@ -40,7 +40,7 @@ tools {
         stage ('Deploy'){
             steps{
                     sshagent(['k8s']) {
-                        sh "scp -o StrictHostKeyChecking=no deployment.yaml service.yaml 34.207.72.157@ubuntu:/home/ubuntu/"
+                        sh "scp -o StrictHostKeyChecking=no deployment.yaml service.yaml ubuntu@34.207.72.157:/home/ubuntu/"
                         script{
                             try{
                                 sh "ssh ubuntu@34.207.72.157 kubectl apply -f ."
