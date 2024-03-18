@@ -29,9 +29,10 @@ tools {
                 // Fetch the Dockerfile from GitHu
                 script {
                     sh "docker build -t ${dockerImage} ."
-                    withDockerRegistry(credentialsId: 'Docker-cred', url: 'https://index.docker.io/v1') {
-                        def dockerImage = docker.image("${dockerImage}")
-                        dockerImage.push()
+                    sh "docker login -u "narendra98" -p "Naren@818" docker.io && docker push ${dockerImage}"
+                    //withDockerRegistry(credentialsId: 'Docker-cred', url: 'https://index.docker.io/v1') {
+                        //def dockerImage = docker.image("${dockerImage}")
+                        //dockerImage.push()
             }
         }
         }
