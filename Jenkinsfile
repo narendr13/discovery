@@ -35,9 +35,6 @@ tools {
                     //withDockerRegistry(credentialsId: 'Docker-cred', url: 'http://index.docker.io') {
                         
                     }
-                        
-                    //withDockerRegistry(credentialsId: 'Docker-cred', url: 'http://index.docker.io') {}
-                    //"${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
             }
         }
         }
