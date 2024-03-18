@@ -29,7 +29,7 @@ tools {
                 // Fetch the Dockerfile from GitHu
                 script {
                     sh "docker build -t ${dockerImage} ."
-                    sh "docker login -u "narendra98" -p "Naren@818" docker.io && docker push ${dockerImage}"
+                    sh "docker login -u "narendra98" -p "dckr_pat_emXMiH4I043C-ubFlGPntT8S6u8" docker.io && docker push ${dockerImage}"
             }
         }
         }
