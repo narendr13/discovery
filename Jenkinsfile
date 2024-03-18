@@ -37,6 +37,21 @@ tools {
                     }
             }
         }
+        stage ('Deploy'){
+            steps{
+                    sshagent(['k8s']) {
+                        sh "scp -o StrictHostKeyChecking=no deployment.yaml service.yaml 34.207.72.157@ubuntu:/home/ubuntu/"
+                        script{
+                            try{
+                                sh "ssh ubuntu@34.207.72.157 kubectl apply -f ."
+                            }
+                            catch{
+                                sh "ssh ubuntu@34.207.72.157 kubectl create -f ."
+                            }
+                        }
+                    }
+            }
+        }
         }
         }
 
