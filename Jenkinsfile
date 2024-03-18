@@ -23,6 +23,7 @@ tools {
         stage ('image build'){
             environment{
                 docker_image = "narendra98/king:${BUILD_NUMBER}"  
+                REGISTRY_CREDENTIALS = credentials('docker-cred')
             }
             steps {
                 // Fetch the Dockerfile from GitHu
