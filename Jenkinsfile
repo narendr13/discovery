@@ -24,7 +24,7 @@ tools {
             steps {
                 // Fetch the Dockerfile from GitHu
                 script {
-                    sh "sudo docker build -t king ."
+                    sh "docker build -t king ."
             }
         }
         }
