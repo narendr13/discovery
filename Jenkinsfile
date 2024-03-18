@@ -17,7 +17,7 @@ tools {
                     def mvnHome = tool 'maven'
                     def mvnCmd = "${mvnHome}/bin/mvn"
                     sh "${mvnCmd} -f discovery-server/pom.xml clean install"
-                    sh "sudo cp /var/lib/jenkins/workspace/sample/discovery-server/target/discovery-server-0.0.1-SNAPSHOT.jar /var/lib/docker/tmp/"
+                    sh "sudo echo "jenkins" | sudo -S cp /var/lib/jenkins/workspace/sample/discovery-server/target/discovery-server-0.0.1-SNAPSHOT.jar /var/lib/docker/tmp/"
                 }
             }
         }
@@ -25,7 +25,7 @@ tools {
             steps {
                 // Fetch the Dockerfile from GitHu
                 script {
-                    sh "docker build -t king ."
+                    sh "sudo docker build -t king ."
             }
         }
         }
