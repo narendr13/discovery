@@ -29,7 +29,11 @@ tools {
                 // Fetch the Dockerfile from GitHu
                 script {
                     sh "docker build -t ${dockerImage} ."
-                    sh "docker login -u "narendra98" -p "dckr_pat_emXMiH4I043C-ubFlGPntT8S6u8" docker.io && docker push ${dockerImage}"
+                     docker.withRegistry('https://index.docker.io/v1/', REGISTRY_CREDENTIALS) {
+                        docker.image(dockerImage).push()
+                    }
+                    //withDockerRegistry(credentialsId: 'Docker-cred', url: 'http://index.docker.io') {}
+                    //"${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
             }
         }
         }
