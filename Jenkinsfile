@@ -45,7 +45,7 @@ tools {
                             try{
                                 sh "ssh ubuntu@34.207.72.157 kubectl apply -f ."
                             }
-                            catch{
+                            catch(error){
                                 sh "ssh ubuntu@34.207.72.157 kubectl create -f ."
                             }
                         }
