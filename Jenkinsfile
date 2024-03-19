@@ -41,7 +41,7 @@ tools {
             steps{
                     sshagent(['k8s']) {
                         sh "scp -o StrictHostKeyChecking=no service.yaml deployment.yaml ubuntu@100.24.53.137:/home/ubuntu/"
-                        sh "ssh ubuntu@100.24.53.137 kubectl apply -f . --validate=false"
+                        sh "ssh root@100.24.53.137 kubectl apply -f . --validate=false"
                         //script{
                             //try{
                                 //sh "ssh ubuntu@100.24.53.137 kubectl apply -f . --validate=false"
