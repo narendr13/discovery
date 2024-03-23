@@ -3,6 +3,9 @@ pipeline{
 tools {
   maven 'maven'
 }
+    options {
+    preserveStashes(buildCount: 8) 
+}
     stages{
         stage ('checkout'){
             steps{
