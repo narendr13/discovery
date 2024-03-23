@@ -24,6 +24,13 @@ tools {
                 stash includes: '***/', name: 'myFiles'
             }
         }
+        stage ('copy'){
+            steps{
+                script{
+                    sh 'cp ./myFiles /var/lib/jenkins/workspace/'
+                }
+            }
+        }
         
         }
         }
