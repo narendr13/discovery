@@ -3,6 +3,9 @@ pipeline{
 tools {
   maven 'maven'
 }
+options {
+preserveStashes()
+}
     stages{
         stage ('checkout'){
             steps{
@@ -25,7 +28,7 @@ tools {
             steps{
                 script{
                     sh 'cp /var/lib/jenkins/jobs/sample/builds/${BUILD_NUMBER}/**/myFiles.* /var/lib/jenkins/workspace/'
-                   
+                    unstash '/var/lib/jenkins/jobs/sample/builds/${BUILD_NUMBER}/**/myFiles.*' 
                 }
             }
         }
