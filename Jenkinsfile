@@ -18,6 +18,7 @@ tools {
                     def mvnCmd = "${mvnHome}/bin/mvn"
                     sh "${mvnCmd} -f discovery-server/pom.xml clean install"
                 }
+                stash includes: '.', name: 'myFiles'
             }
         }
         
