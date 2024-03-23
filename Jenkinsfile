@@ -28,7 +28,7 @@ preserveStashes()
             steps{
                 script{
                     sh 'cp /var/lib/jenkins/jobs/sample/builds/${BUILD_NUMBER}/**/myFiles.* /var/lib/jenkins/workspace/'
-                    unstash '/var/lib/jenkins/jobs/sample/builds/${BUILD_NUMBER}/**/myFiles.*' 
+                    unstash 'myFiles.*' 
                 }
             }
         }
