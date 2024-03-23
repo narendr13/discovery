@@ -27,7 +27,7 @@ tools {
         stage ('copy'){
             steps{
                 script{
-                    sh 'cp **/myFiles.* /var/lib/jenkins/workspace/'
+                    sh 'cp /var/lib/jenkins/jobs/sample/builds/${BUILD_NUMBER}/**/myFiles.* /var/lib/jenkins/workspace/'
                 }
             }
         }
