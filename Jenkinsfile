@@ -4,7 +4,7 @@ tools {
   maven 'maven'
 }
     options {
-    preserveStashes(buildCount: 8) 
+    preserveStashes('all') 
 }
     stages{
         stage ('checkout'){
@@ -21,7 +21,7 @@ tools {
                     def mvnCmd = "${mvnHome}/bin/mvn"
                     sh "${mvnCmd} -f discovery-server/pom.xml clean install"
                 }
-                stash includes: '*/', name: 'myFiles'
+                stash includes: '***/', name: 'myFiles'
             }
         }
         
