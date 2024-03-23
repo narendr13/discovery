@@ -4,7 +4,7 @@ tools {
   maven 'maven'
 }
     options {
-    preserveStashes('all') 
+    preserveStashes() 
 }
     stages{
         stage ('checkout'){
