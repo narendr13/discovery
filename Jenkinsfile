@@ -20,23 +20,7 @@ tools {
                 }
             }
         }
-        stage ('image build'){
-            environment{
-                dockerImage = "narendra98/king:${BUILD_NUMBER}"  
-                REGISTRY_CREDENTIALS = credentials('Docker-cred')
-            }
-            steps {
-                // Fetch the Dockerfile from GitHu
-                script {
-                    sh "docker build -t ${dockerImage} ."
-                     docker.withRegistry('https://index.docker.io/v1/', "Docker-cred") {
-                         docker.image(dockerImage).push()
-                     }
-                    //withDockerRegistry(credentialsId: 'Docker-cred', url: 'http://index.docker.io') {
-                        
-                    }
-            }
-        }
+        
         stage ('Deploy'){
             steps{
                     sshagent(['k8s']) {
