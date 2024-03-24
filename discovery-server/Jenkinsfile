@@ -1,12 +1,13 @@
 pipeline{
-    agent {
-        docker { image 'ubuntu:latest' }
-    }
+    agent any
 tools {
   maven 'maven'
 }
     stages{
         stage ('checkout'){
+            agent {
+        docker { image 'ubuntu:latest' }
+    }
             steps{
                 script{
                     checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/narendr13/discovery.git']])
