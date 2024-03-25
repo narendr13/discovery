@@ -7,9 +7,15 @@ tools {
 }
     stages{
         stage ('checkout'){
+            agent {
+                docker {
+                    image 'git:latest'
+                    reuseNode true
+                }
+            }
             steps{
                 script{
-                    sh 'echo king'
+                    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/narendr13/discovery.git']])
                 }
             }
         }
