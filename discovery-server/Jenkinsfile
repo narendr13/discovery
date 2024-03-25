@@ -10,7 +10,7 @@ tools {
             agent {
             docker { 
                 image 'ubuntu'
-                reuseNode true
+              
             }
                     }
             steps{
