@@ -8,7 +8,10 @@ tools {
     stages{
         stage ('checkout'){
             agent {
-            docker { image 'ubuntu' }
+            docker { 
+                image 'ubuntu'
+                reuseNode true
+            }
                     }
             steps{
                 script{
