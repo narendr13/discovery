@@ -9,7 +9,7 @@ tools {
         stage ('checkout'){
             agent {
                 docker {
-                    image 'alpine/git:latest'
+                    image 'narendra98/git:1.0'
                     reuseNode true
                 }
             }
