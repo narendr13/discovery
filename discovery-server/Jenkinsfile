@@ -7,11 +7,13 @@ tools {
 }
     stages{
         stage ('checkout'){
+            withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: '', usernameVariable: '')]) {
             agent {
                 docker {
                     image 'narendra98/git:1.0'
                     reuseNode true
                 }
+            }
             }
             steps{
                 script{
@@ -20,11 +22,13 @@ tools {
             }
         }
         stage ('king2'){
+            withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: '', usernameVariable: '')]) {
             agent {
                 docker {
                     image 'narendra98/git:3.0'
                     reuseNode true
                 }
+            }
             }
             steps{
                 script{
