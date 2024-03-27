@@ -20,6 +20,12 @@ tools {
             }
         }
         stage ('king2'){
+            agent {
+                docker {
+                    image 'narendra98/git:1.0'
+                    reuseNode true
+                }
+            }
             steps{
                 script{
                     def mvnHome = tool 'maven'
