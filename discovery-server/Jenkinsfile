@@ -7,7 +7,8 @@ tools {
 }
     stages{
         stage ('checkout'){
-            withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: '', usernameVariable: '')]) {
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: '', usernameVariable: '')]) {
             agent {
                 docker {
                     image 'narendra98/git:1.0'
@@ -15,14 +16,14 @@ tools {
                 }
             }
             }
-            steps{
                 script{
                     checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/narendr13/discovery.git']])
                 }
             }
         }
         stage ('king2'){
-            withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: '', usernameVariable: '')]) {
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: '', usernameVariable: '')]) {
             agent {
                 docker {
                     image 'narendra98/git:3.0'
@@ -30,7 +31,6 @@ tools {
                 }
             }
             }
-            steps{
                 script{
                     sh "mvn -f discovery-server/pom.xml clean install"
                 }
