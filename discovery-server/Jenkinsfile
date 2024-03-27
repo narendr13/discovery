@@ -22,7 +22,7 @@ tools {
         stage ('king2'){
             agent {
                 docker {
-                    image 'narendra98/git:2.0'
+                    image 'narendra98/git:3.0'
                     reuseNode true
                 }
             }
