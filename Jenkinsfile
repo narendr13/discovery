@@ -18,7 +18,7 @@ pipeline {
             }
             steps{
                 script {
-                    echo 'it is ${param.TARGET_ENVIRONMENT}'
+                    echo 'it is $param.TARGET_ENVIRONMENT'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
             }
             steps {
                 script {
-                    echo 'it is ${params.TARGET_ENVIRONMENT}'
+                    echo 'it is $params.TARGET_ENVIRONMENT'
                 }
             }
         }
