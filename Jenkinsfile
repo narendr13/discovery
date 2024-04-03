@@ -1,39 +1,32 @@
-pipeline{
+pipeline {
     agent any
-tools {
-  maven 'maven'
-}
-options {
-preserveStashes()
-}
+    parameters {
+        choice(name: 'king', choices: ['One','Two']), description: 'hello')
+    }
     stages{
-        stage ('checkout'){
+        stage('test'){
+            when {
+                expression {
+                    params.king == 'One'
+                }
+            }
             steps{
-                script{
-                    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/narendr13/discovery.git']])
+                script {
+                    echo 'it is one'
                 }
             }
         }
-        stage ('king2'){
-            steps{
-                script{
-                    def mvnHome = tool 'maven'
-                    def mvnCmd = "${mvnHome}/bin/mvn"
-                    sh "${mvnCmd} -f discovery-server/pom.xml clean install"
+        stage('two'){
+            when {
+                expression {
+                    params.king == 'Two'
                 }
-                stash includes: '*/', name: 'myFiles'
             }
-        }
-        stage ('copy'){
-            steps{
-                script{
-                    sh 'cp /var/lib/jenkins/jobs/sample/builds/${BUILD_NUMBER}/**/myFiles.* /var/lib/jenkins/workspace/'
-                    unstash 'myFiles' 
-                    cleanWs()
+            steps {
+                script {
+                    echo 'it is two'
                 }
             }
         }
-        
-        }
-        }
-
+    }
+}
