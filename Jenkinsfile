@@ -4,7 +4,7 @@ pipeline {
         skipDefaultCheckout()
     }
     parameters {
-        choice(name: 'king', choices: ['One','Two']), description: 'hello')
+        choice(name: 'king', choices: ['One','Two'], description: 'hello')
     }
     stages{
         stage('test'){
