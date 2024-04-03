@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    options{
+        skipDefaultCheckout()
+    }
     parameters {
         choice(name: 'king', choices: ['One','Two']), description: 'hello')
     }
